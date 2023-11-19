@@ -1,12 +1,35 @@
 num = input('Number: ')
-# 1 рубль, 2-4 рубля, 5-20 рублей
+List = []
 
+
+# Создание списка с игнорированием STR
 for i in num:
-	list.append = i
+	try:
+		int_check = int(i)
+	except ValueError:
+		continue
+	else:
+		List.append(i)
 
-#last_Symbol = list[-1:0:0]
-#if last_Symbol 
+# Определение последней и предпоследней цифры
+last_Symbol = int(List[-1])
 
-#print(num, 'рублей')
+try:	#Отлов ошибки отсутствующей последней цифры
+	penult_Symbol = int(List[-2])
+except IndexError:
+	penult_Symbol = 0
 
-print(list)
+
+# Решение об окончании
+if penult_Symbol == 1:
+	suffix = 'рублей'
+elif last_Symbol < 5 and last_Symbol > 0:
+	if last_Symbol == 1:
+		suffix = 'рубль'
+	else:
+		suffix = 'рубля'
+else:
+	suffix = 'рублей'
+
+
+print(num, suffix)
